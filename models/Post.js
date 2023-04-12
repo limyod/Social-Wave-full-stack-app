@@ -1,0 +1,40 @@
+import mongoose, { Schema } from "mongoose";
+
+const PostSchema = new mongoose.Schema({
+  userid: {
+    type: String,
+    required: true,
+  },
+  firstName: {
+    type: String,
+    required: true,
+    min: 2,
+    max: 50,
+  },
+
+  lastName: {
+    type: String,
+    required: true,
+    min: 2,
+    max: 50,
+  },
+  location: String,
+  description: String,
+  userPicturePath: String,
+  picturePath: String,
+  likes: {
+    type: Map,
+    of: Boolean,
+  },
+  comments: {
+    types: Array,
+    default: [],
+  },
+    },
+  {timestamps: true}
+
+
+);
+
+const Post = mongoose.model("Post", PostSchema);
+export default Post;
