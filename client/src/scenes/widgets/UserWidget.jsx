@@ -27,7 +27,6 @@ const UserWidget = ({ userId, picturePath }) => {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await response.json();
-    console.log(data);
     setUser(data);
   };
   useEffect(() => {
@@ -71,47 +70,51 @@ const UserWidget = ({ userId, picturePath }) => {
               {firstName} {lastName}
             </Typography>
             <Typography color={medium}>{friends.length} friends</Typography>
-            <ManageAccountsOutlined />
+            
           </Box>
-          <Divider />
-          {/* Second Row */}
-          <Box p="1rem 0">
-            <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
-              <LocationOnOutlined fontSize="Large" sx={{ color: main }} />
-              <Typography color={medium}>{location}</Typography>
-            </Box>
-            <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
-              <WorkOutlineOutlined fontSize="Large" sx={{ color: main }} />
-              <Typography color={medium}>{occupation}</Typography>
-            </Box>
-            {/* Third row */}
-            <Box p="1rem 0">
-              <FlexBetween mb="0.5rem">
-                <Typography color={medium}>
-                  Who's viewed your profile
-                </Typography>
-                <Typography color={main} fontWeight="500">
-                  {viewedProfile}
-                </Typography>
-              </FlexBetween>
-              <FlexBetween>
-                <Typography color={medium}>Impressions of your post</Typography>
-                <Typography color={main} fontWeight="500">
-                  {impressions}
-                </Typography>
-              </FlexBetween>
-            </Box>
+          </FlexBetween>
+          <ManageAccountsOutlined />
+        </FlexBetween>
+        <Divider />
+        {/* Second Row */}
+        <Box p="1rem 0">
+          <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
+            <LocationOnOutlined fontSize="Large" sx={{ color: main }} />
+            <Typography color={medium}>{location}</Typography>
+          </Box>
+          <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
+            <WorkOutlineOutlined fontSize="Large" sx={{ color: main }} />
+            <Typography color={medium}>{occupation}</Typography>
+          </Box>
+        </Box>
+        {/* Third row */}
+        <Box p="1rem 0">
+          <FlexBetween mb="0.5rem">
+            <Typography color={medium}>
+              Who's viewed your profile
+            </Typography>
+            <Typography color={main} fontWeight="500">
+              {viewedProfile}
+            </Typography>
+          </FlexBetween>
+          <FlexBetween>
+            <Typography color={medium}>Impressions of your post</Typography>
+            <Typography color={main} fontWeight="500">
+              {impressions}
+            </Typography>
+          </FlexBetween>
+        </Box>
 
-            {/* Fourth Row */}
-            <Box p="1rem 0">
-              <Typography
-                fontSize="1rem"
-                color={main}
-                fontWeight="500"
-                mb="1rem"
-              >
-                Social Profiles
-              </Typography>
+        {/* Fourth Row */}
+        <Box p="1rem 0">
+          <Typography
+            fontSize="1rem"
+            color={main}
+            fontWeight="500"
+            mb="1rem"
+          >
+            Social Profiles
+          </Typography>
 
               <FlexBetween gap="1rem" mb="0.5rem">
                 <FlexBetween gap="1rem">
@@ -139,9 +142,6 @@ const UserWidget = ({ userId, picturePath }) => {
                 <EditOutlined sx={{ color: main }} />
               </FlexBetween>
             </Box>
-          </Box>
-        </FlexBetween>
-      </FlexBetween>
     </WidgetWrapper>
   );
 };
